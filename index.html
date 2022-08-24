@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset='UTF-8' />
+    <title>HTML - 音频</title>
+
+</head>
+<style type='text/css'>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .big_box {
+        height: 100vh;
+        background: url('./img/coffee.jpg');
+        background-size: 100% 100%;
+    }
+
+    h1 {
+        color: #ffffff;
+        text-align: center;
+        /*background: rgb(139, 113, 67, 0.6);*/
+        font-size: 48px;
+        text-shadow: 0 0 5px #9f9e9e, 0 0 3px #333333;
+    }
+
+</style>
+<body>
+<div class='big_box'>
+    <h1>LISA's Coffee</h1>
+    <br>
+    <div align='center'>
+        <audio id='music1' height='100' width='100' preload='auto' loop='loop'>
+            <source src='./audio/自然音01.mp3' type='audio/mp3' />
+            <source src='./audio/自然音01.wav' type='audio/wav' />
+            <source src='./audio/自然音01.ogg' type='audio/ogg' />
+            <embed height='100' width='100' />
+            你的浏览器不支持该音频格式。 Your browser does not support this audio format.
+        </audio>
+    </div>
+</div>
+<br>
+</body>
+<script>
+    var myAuto = document.getElementById('music1')
+    myAuto.play()
+</script>
