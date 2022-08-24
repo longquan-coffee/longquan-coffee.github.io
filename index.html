@@ -45,7 +45,7 @@
 <script>
     function rbf() {
         const audio = document.getElementById('music1')
-        audio.currentTime = 0  //这就是重播，简单吧
+        audio.currentTime = 0  //重播
     }
 
     function bf() {
@@ -54,10 +54,10 @@
         if (audio !== null) {
             //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
             if (audio.paused) {
-                audio.play()//audio.play();// 这个就是播放
+                audio.play()// 播放
                 ctrl_btn.style.background = 'url(./img/pause.png) no-repeat'
             } else {
-                audio.pause()// 这个就是暂停
+                audio.pause()// 暂停
                 ctrl_btn.style.background = 'url(./img/play.png) no-repeat'
             }
         }
