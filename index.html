@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset='UTF-8' />
-    <title>HTML - 音频</title>
-
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title></title>
 </head>
 <style type='text/css'>
     * {
@@ -25,24 +25,45 @@
         text-shadow: 0 0 5px #9f9e9e, 0 0 3px #333333;
     }
 
+    .ctrl_btn {
+        position: fixed;
+        top: 85vh;
+        left: 50px;
+        height: 48px;
+        width: 48px;
+        background-size: contain;
+        background: url('./img/play.png') no-repeat;
+    }
+
 </style>
 <body>
+<audio src='./audio/自然音01.mp3' controls='controls' preload id='music1' hidden>
+</audio>
 <div class='big_box'>
-    <h1>LISA's Coffee</h1>
-    <br>
-    <div align='center'>
-        <audio id='music1' height='100' width='100' preload='auto' loop='loop'>
-            <source src='./audio/自然音01.mp3' type='audio/mp3' />
-            <source src='./audio/自然音01.wav' type='audio/wav' />
-            <source src='./audio/自然音01.ogg' type='audio/ogg' />
-            <embed height='100' width='100' />
-            你的浏览器不支持该音频格式。 Your browser does not support this audio format.
-        </audio>
-    </div>
+    <div id='ctrl_btn' class='ctrl_btn' onclick='bf();' />
 </div>
-<br>
-</body>
 <script>
-    var myAuto = document.getElementById('music1')
-    myAuto.play()
+    function rbf() {
+        const audio = document.getElementById('music1')
+        audio.currentTime = 0  //这就是重播，简单吧
+    }
+
+    function bf() {
+        const audio = document.getElementById('music1')
+        const ctrl_btn = document.getElementById('ctrl_btn')
+        if (audio !== null) {
+            //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
+            if (audio.paused) {
+                audio.play()//audio.play();// 这个就是播放
+                ctrl_btn.style.background = 'url(./img/pause.png) no-repeat'
+            } else {
+                audio.pause()// 这个就是暂停
+                ctrl_btn.style.background = 'url(./img/play.png) no-repeat'
+            }
+        }
+    }
+
 </script>
+
+</body>
+</html>
