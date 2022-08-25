@@ -37,27 +37,30 @@
 
 </style>
 <body>
-<audio src='./audio/自然音01.mp3' controls='controls' preload id='music1' hidden>
+<audio src='./audio/自然音01.mp3' controls='controls' preload='metadata' id='music1' hidden loop>
 </audio>
 <div class='big_box'>
-    <div id='ctrl_btn' class='ctrl_btn' onclick='bf();' />
+    <div id='ctrl_btn' class='ctrl_btn' onclick='play();' />
 </div>
 <script>
+    const myAuto = document.getElementById('music1')
+    myAuto.play()
+
     function rbf() {
         const audio = document.getElementById('music1')
-        audio.currentTime = 0  //重播
+        audio.currentTime = 0  //这就是重播，简单吧
     }
 
-    function bf() {
+    function play() {
         const audio = document.getElementById('music1')
         const ctrl_btn = document.getElementById('ctrl_btn')
         if (audio !== null) {
             //检测播放是否已暂停.audio.paused 在播放器播放时返回false.
             if (audio.paused) {
-                audio.play()// 播放
+                audio.play()//audio.play();// 这个就是播放
                 ctrl_btn.style.background = 'url(./img/pause.png) no-repeat'
             } else {
-                audio.pause()// 暂停
+                audio.pause()// 这个就是暂停
                 ctrl_btn.style.background = 'url(./img/play.png) no-repeat'
             }
         }
